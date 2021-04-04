@@ -21,13 +21,13 @@ switch ($month)
       case '12' : $monthtext="ธันวาคม"; break;
     }
 if (isset($_GET['fresh'])) {
-    if(file_exists("../txtcache/".$filename)){
-        unlink("../txtcache/".$filename);
+    if(file_exists($filename)){
+        unlink($filename);
     }
 }
-if(file_exists("../txtcache/".$filename)){
-    $myfile = fopen("../txtcache/".$filename,"r") or die("Unable to open file!");
-    $readwow = fread($myfile,filesize("../txtcache/".$filename));
+if(file_exists($filename)){
+    $myfile = fopen($filename,"r") or die("Unable to open file!");
+    $readwow = fread($myfile,filesize($filename));
     if (isset($_GET['from'])) {
         $readwow = json_decode($readwow, true);
         $readwow[0][0] = $day.' '.$monthtext.' '.$year;
@@ -133,7 +133,7 @@ if (isset($_GET['from'])) {
     $lottapi[0][0] = "รางวัลที่1";
 }
 if($bigel[2] ->nodeValue != null && $bigel[2] ->nodeValue != ' เวลา 14:30-16:00น.'){
-    $myfile = fopen("../txtcache/".$filename, "w") or die("Unable to open file!");
+    $myfile = fopen($filename, "w") or die("Unable to open file!");
     fwrite($myfile, json_encode($lottapi));
     fclose($myfile);
 }
