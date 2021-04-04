@@ -2,7 +2,7 @@
 error_reporting(E_ERROR | E_PARSE);
 header('Access-Control-Allow-Origin: *');
 if(isset($_GET["cache"])){
-    $myfile = fopen("cache/test.txt", "r") or die("Unable to open file!");
+    $myfile = fopen("txtcache/test.txt", "r") or die("Unable to open file!");
     echo fgets($myfile);
     fclose($myfile);
     exit();
@@ -75,7 +75,7 @@ while($year <= $nextyear) {
     }
     $year += 10;
 }
-$file = fopen("cache/test.txt","w");
+$file = fopen("txtcache/test.txt","w");
 fwrite($file,json_encode($yearlist));
 fclose($file);
 

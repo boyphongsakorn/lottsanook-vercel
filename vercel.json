@@ -1,27 +1,6 @@
 {
   "functions": {
-    "api/index.php": {
-      "runtime": "vercel-php@0.4.0"
-    },
-    "api/index2.php": {
-      "runtime": "vercel-php@0.4.0"
-    },
-    "api/god.php": {
-      "runtime": "vercel-php@0.4.0"
-    },
-    "api/getchit.php": {
-      "runtime": "vercel-php@0.4.0"
-    },
-    "api/gdpy.php": {
-      "runtime": "vercel-php@0.4.0"
-    },
-    "api/finddol.php": {
-      "runtime": "vercel-php@0.4.0"
-    },
-    "api/checklottery.php": {
-      "runtime": "vercel-php@0.4.0"
-    },
-    "api/lastlot.php": {
+    "api/*": {
       "runtime": "vercel-php@0.4.0"
     }
   }

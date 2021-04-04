@@ -15,9 +15,9 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $response = curl_exec($ch);
 curl_close($ch);
 $yourlot = $response;
-if(file_exists("cache/".$date.".txt")){
-    $myfile = fopen("cache/".$date.".txt","r") or die("Unable to open file!");
-    $yourlot = fread($myfile,filesize("cache/".$date.".txt"));
+if(file_exists("txtcache/".$date.".txt")){
+    $myfile = fopen("txtcache/".$date.".txt","r") or die("Unable to open file!");
+    $yourlot = fread($myfile,filesize("txtcache/".$date.".txt"));
 }
 $lot_array  = json_decode($yourlot);
 //echo $yourlot;
