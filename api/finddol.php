@@ -1,4 +1,5 @@
 <?php
+//ยังใช้งานไม่ได้ในvercel
 error_reporting(E_ERROR | E_PARSE);
 header('Access-Control-Allow-Origin: *');
 /*$myfile = fopen("txtcache/test.txt","r") or die("Unable to open file!");

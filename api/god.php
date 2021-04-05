@@ -1,4 +1,5 @@
 <?php
+//ยังใช้งานไม่ได้ในvercel
 error_reporting(E_ERROR | E_PARSE);
 header('Access-Control-Allow-Origin: *');
 /*if(isset($_GET["cache"])){
