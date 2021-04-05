@@ -19,7 +19,7 @@ switch ($month){
     case '11' : $monthtext="พฤศจิกายน"; break;
     case '12' : $monthtext="ธันวาคม"; break;
 }
-if (isset($_GET['fresh'])) {
+/*if (isset($_GET['fresh'])) {
     if(file_exists("txtcache/".$filename)){
         unlink("txtcache/".$filename);
     }
@@ -35,7 +35,7 @@ if(file_exists("txtcache/".$filename)){
     echo $readwow;
     fclose($myfile);
     exit();
-}
+}*/
 $url = "https://news.sanook.com/lotto/check/".$_GET['date']."/";
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $url);
@@ -133,9 +133,9 @@ echo json_encode($lottapi);
 if (isset($_GET['from'])) {
     $lottapi[0][0] = "รางวัลที่1";
 }
-if(preg_match('~[0-9]+~', $lottapi[0][1])){
+/*if(preg_match('~[0-9]+~', $lottapi[0][1])){
     $myfile = fopen("txtcache/".$filename, "w") or die("Unable to open file!");
     fwrite($myfile, json_encode($lottapi));
     fclose($myfile);
-}
+}*/
 ?>

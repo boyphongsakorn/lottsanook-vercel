@@ -20,7 +20,7 @@ switch ($month)
       case '11' : $monthtext="พฤศจิกายน"; break;
       case '12' : $monthtext="ธันวาคม"; break;
     }
-if (isset($_GET['fresh'])) {
+/*if (isset($_GET['fresh'])) {
     if(file_exists($filename)){
         unlink($filename);
     }
@@ -36,7 +36,7 @@ if(file_exists($filename)){
     echo $readwow;
     fclose($myfile);
     exit();
-}
+}*/
 if ($year == date('Y')+543) {
     if (isset($_GET['from'])) {
         $ch = curl_init();
@@ -132,9 +132,9 @@ echo json_encode($lottapi);
 if (isset($_GET['from'])) {
     $lottapi[0][0] = "รางวัลที่1";
 }
-if($bigel[2] ->nodeValue != null && $bigel[2] ->nodeValue != ' เวลา 14:30-16:00น.'){
+/*if($bigel[2] ->nodeValue != null && $bigel[2] ->nodeValue != ' เวลา 14:30-16:00น.'){
     $myfile = fopen($filename, "w") or die("Unable to open file!");
     fwrite($myfile, json_encode($lottapi));
     fclose($myfile);
-}
+}*/
 ?>

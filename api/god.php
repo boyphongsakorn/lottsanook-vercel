@@ -1,12 +1,12 @@
 <?php
 error_reporting(E_ERROR | E_PARSE);
 header('Access-Control-Allow-Origin: *');
-if(isset($_GET["cache"])){
+/*if(isset($_GET["cache"])){
     $myfile = fopen("txtcache/test.txt", "r") or die("Unable to open file!");
     echo fgets($myfile);
     fclose($myfile);
     exit();
-}
+}*/
 $year = 2533;
 $preyearlist = array();
 $preyearsuperlist = array();
