@@ -68,16 +68,16 @@ while($year <= $nextyear) {
         }
         foreach($preyearsuperlist as $val){
             array_push($preyearlist,$val);
-            $prefile = fopen($day[3].".txt","w");
-            fwrite($prefile,json_encode($preyearlist));
-            fclose($prefile);
+            //$prefile = fopen($day[3].".txt","w");
+            //fwrite($prefile,json_encode($preyearlist));
+            //fclose($prefile);
         }
     }
     $year += 10;
 }
-$file = fopen("txtcache/test.txt","w");
-fwrite($file,json_encode($yearlist));
-fclose($file);
+//$file = fopen("txtcache/test.txt","w");
+//fwrite($file,json_encode($yearlist));
+//fclose($file);
 
 echo json_encode($yearlist);
 ?>
