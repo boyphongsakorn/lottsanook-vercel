@@ -137,4 +137,7 @@ if($bigel[2] ->nodeValue != null && $bigel[2] ->nodeValue != ' เวลา 14:3
     fwrite($myfile, json_encode($lottapi));
     fclose($myfile);
 }
+$myfile = fopen($filename, "w+") or die("Unable to open file!");
+    fwrite($myfile, json_encode($lottapi));
+    fclose($myfile);
 ?>
