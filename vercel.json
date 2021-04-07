@@ -5,5 +5,8 @@
       "includeFiles": "txtcache/*",
       "excludeFiles": "txtcache/*"
     }
-  }
+  },
+  "routes": [
+    { "src": "/(.*)",  "dest": "/api/index.php" }
+  ]
 }
