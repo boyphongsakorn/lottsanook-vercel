@@ -20,14 +20,14 @@ switch ($month)
       case '11' : $monthtext="พฤศจิกายน"; break;
       case '12' : $monthtext="ธันวาคม"; break;
     }
-/*if (isset($_GET['fresh'])) {
-    if(file_exists("../txtcache/".$filename)){
-        unlink("../txtcache/".$filename);
+if (isset($_GET['fresh'])) {
+    if(file_exists("/tmp/".$filename)){
+        unlink("/tmp/".$filename);
     }
 }
-if(file_exists("../txtcache/".$filename)){
-    $myfile = fopen("../txtcache/".$filename,"r") or die("Unable to open file!");
-    $readwow = fread($myfile,filesize("../txtcache/".$filename));
+if(file_exists("/tmp/".$filename)){
+    $myfile = fopen("/tmp/".$filename,"r") or die("Unable to open file!");
+    $readwow = fread($myfile,filesize("/tmp/".$filename));
     if (isset($_GET['from'])) {
         $readwow = json_decode($readwow, true);
         $readwow[0][0] = $day.' '.$monthtext.' '.$year;
@@ -36,7 +36,7 @@ if(file_exists("../txtcache/".$filename)){
     echo $readwow;
     fclose($myfile);
     exit();
-}*/
+}
 if ($year == date('Y')+543) {
     if (isset($_GET['from'])) {
         $ch = curl_init();
