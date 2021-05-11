@@ -1,9 +1,7 @@
 {
   "functions": {
     "api/*": {
-      "runtime": "vercel-php@0.4.0",
-      "includeFiles": "txtcache/*",
-      "excludeFiles": "txtcache/*"
+      "runtime": "vercel-php@0.4.0"
     }
   }
 }
