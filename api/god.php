@@ -1,13 +1,11 @@
 <?php
-//ยังใช้งานไม่ได้ในvercel
-error_reporting(E_ERROR | E_PARSE);
 header('Access-Control-Allow-Origin: *');
-/*if(isset($_GET["cache"])){
-    $myfile = fopen("txtcache/test.txt", "r") or die("Unable to open file!");
+if(isset($_GET["cache"])){
+    $myfile = fopen("/tmp/test.txt", "r") or die("Unable to open file!");
     echo fgets($myfile);
     fclose($myfile);
     exit();
-}*/
+}
 $year = 2533;
 $preyearlist = array();
 $preyearsuperlist = array();
@@ -69,16 +67,16 @@ while($year <= $nextyear) {
         }
         foreach($preyearsuperlist as $val){
             array_push($preyearlist,$val);
-            //$prefile = fopen($day[3].".txt","w");
-            //fwrite($prefile,json_encode($preyearlist));
-            //fclose($prefile);
+            $prefile = fopen($day[3].".txt","w");
+            fwrite($prefile,json_encode($preyearlist));
+            fclose($prefile);
         }
     }
     $year += 10;
 }
-//$file = fopen("txtcache/test.txt","w");
-//fwrite($file,json_encode($yearlist));
-//fclose($file);
+$file = fopen("/tmp/test.txt","w");
+fwrite($file,json_encode($yearlist));
+fclose($file);
 
 echo json_encode($yearlist);
 ?>

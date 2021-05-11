@@ -1,5 +1,4 @@
 <?php
-error_reporting(E_ERROR | E_PARSE);
 header('Access-Control-Allow-Origin: *');
 $url = "https://www.huayvips.com/luckynumber/";
 $ch = curl_init();

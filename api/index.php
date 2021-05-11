@@ -1,5 +1,4 @@
 <?php
-error_reporting(E_ERROR | E_PARSE);
 header('Access-Control-Allow-Origin: *');
 $filename = $_GET['date'].".txt";
 $day = substr($_GET['date'], 0,2);
@@ -137,8 +136,4 @@ if($bigel[2] ->nodeValue != null && $bigel[2] ->nodeValue != ' เวลา 14:3
     fwrite($myfile, json_encode($lottapi));
     fclose($myfile);
 }
-/*$myfile = @fopen($filename, "wb") or die("Unable to open file!");
-@fwrite($myfile, json_encode($lottapi));
-@fclose($myfile);
-file_put_contents($filename,json_encode($lottapi));*/
 ?>
