@@ -134,7 +134,7 @@ if (isset($_GET['from'])) {
     $lottapi[0][0] = "รางวัลที่1";
 }
 if(preg_match('~[0-9]+~', $lottapi[0][1])){
-    $myfile = fopen("tmp/".$filename, "w") or die("Unable to open file!");
+    $myfile = fopen("/tmp/".$filename, "w") or die("Unable to open file!");
     fwrite($myfile, json_encode($lottapi));
     fclose($myfile);
 }
