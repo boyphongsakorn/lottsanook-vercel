@@ -133,7 +133,7 @@ if (isset($_GET['from'])) {
     $lottapi[0][0] = "รางวัลที่1";
 }
 if($bigel[2] ->nodeValue != null && $bigel[2] ->nodeValue != ' เวลา 14:30-16:00น.'){
-    $myfile = fopen("/tmp/".$filename, "w") or die("Unable to open file!");
+    $myfile = fopen("tmp/".$filename, "w") or die("Unable to open file!");
     fwrite($myfile, json_encode($lottapi));
     fclose($myfile);
 }
