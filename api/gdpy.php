@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ERROR | E_PARSE);
 header('Access-Control-Allow-Origin: *');
 $year = $_GET['year'];
 $txtyear = strval($year).".txt";

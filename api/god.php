@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ERROR | E_PARSE);
 header('Access-Control-Allow-Origin: *');
 if(isset($_GET["cache"])){
     $myfile = fopen("/tmp/test.txt", "r") or die("Unable to open file!");
