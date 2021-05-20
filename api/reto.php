@@ -1,6 +1,7 @@
 <?php
 error_reporting(E_ERROR | E_PARSE);
 header('Access-Control-Allow-Origin: *');
+date_default_timezone_set("Asia/Bangkok");
 $url = "https://lottsanook.herokuapp.com/?date=".date("dm")."".date("Y")+543;
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $url);
