@@ -49,16 +49,16 @@ date_default_timezone_set("Asia/Bangkok");
             font-family: 'Mitr', sans-serif;
             <? if($obj != ""){ ?>
                 <? if(count($obj[2]) == 5) { ?>
-                    background-image: url(fbbg_older.png);
+                    background-image: url(../img/fbbg_older.png);
                 <? } else { ?>
                     <? if(isset($_GET['rm'])) { ?>
-                        background-image: url(fbbg_rmbn.png);
+                        background-image: url(../img/fbbg_rmbn.png);
                     <? } else { ?>
-                    background-image: url(fbbg.png);
+                    background-image: url(../img/fbbg.png);
                     <? } ?>
                 <? } ?>
             <? } else { ?>
-                background-image: url(fbbg_older.png);
+                background-image: url(../img/fbbg_older.png);
             <? } ?>
             color: white;
         }
