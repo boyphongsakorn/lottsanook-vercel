@@ -103,8 +103,8 @@ if(count($threefirst) == 1){
 $lottapi[2][1] = preg_replace('/\xc2\xa0/', '', $threeend[0]);
 $lottapi[2][2] = preg_replace('/\xc2\xa0/', '', $threeend[1]);
 $lottapi[3][1] = $bigel[5] ->nodeValue;
-$lottapi[4][1] = "". $lottapi[0][1]-1 ."";
-$lottapi[4][2] = "". $lottapi[0][1]+1 ."";
+$lottapi[4][1] = "". sprintf("%06d", $lottapi[0][1]-1) ."";
+$lottapi[4][2] = "". sprintf("%06d", $lottapi[0][1]+1) ."";
 foreach($el as $val){
     if($val -> getAttribute('class') == 'ltr_dc ltr-fx ltr_c20'){
         if ($minwave < $maxwave) {
