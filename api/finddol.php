@@ -1,8 +1,8 @@
 <?php
 error_reporting(E_ERROR | E_PARSE);
 header('Access-Control-Allow-Origin: *');
-$myfile = fopen("../tmp/test.txt","r") or die("Unable to open file!");
-$json_string = fread($myfile,filesize("../tmp/test.txt"));
+$myfile = fopen("/tmp/test.txt","r") or die("Unable to open file!");
+$json_string = fread($myfile,filesize("/tmp/test.txt"));
 fclose($myfile);
 $json_array  = json_decode($json_string);
 $count = 0;
