@@ -1,6 +1,7 @@
 <?php
 //ยังใช้งานไม่ได้ในvercel
 error_reporting(E_ERROR | E_PARSE);
+header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
 $days=json_decode(file_get_contents("https://lottsanook.vercel.app/api/gdpy.php?year=".date('Y')+543));
 $get=json_decode(file_get_contents("https://lottsanook.vercel.app/api/?date=".end($days)));

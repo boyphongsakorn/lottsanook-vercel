@@ -1,5 +1,6 @@
 <?php
 error_reporting(E_ERROR | E_PARSE);
+header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
 $filename = $_GET['date'].".txt";
 $day = substr($_GET['date'], 0,2);

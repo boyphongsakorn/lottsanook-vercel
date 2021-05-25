@@ -1,5 +1,6 @@
 <?php
 error_reporting(E_ERROR | E_PARSE);
+header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
 $year = $_GET['year'];
 $txtyear = strval($year).".txt";
