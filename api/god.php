@@ -1,13 +1,33 @@
 <?php
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
+$curl = curl_init();
+
+curl_setopt_array($curl, array(
+  CURLOPT_URL => 'http://lottsanook.herokuapp.com/god',
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => '',
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 0,
+  CURLOPT_FOLLOWLOCATION => true,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => 'GET',
+));
+
+$response = curl_exec($curl);
+
+curl_close($curl);
+echo $response;
 if(isset($_GET["cache"])){
     $myfile = fopen("/tmp/test.txt", "r") or die("Unable to open file!");
     echo fgets($myfile);
     fclose($myfile);
     exit();
 }
-$year = 2533;
+$file = fopen("/tmp/test.txt","w");
+fwrite($file,json_encode($yearlist));
+fclose($file);
+/*$year = 2533;
 $preyearlist = array();
 $preyearsuperlist = array();
 $yearlist = array();
@@ -79,5 +99,5 @@ $file = fopen("/tmp/test.txt","w");
 fwrite($file,json_encode($yearlist));
 fclose($file);
 
-echo json_encode($yearlist);
+echo json_encode($yearlist);*/
 ?>
