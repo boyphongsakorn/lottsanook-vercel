@@ -25,7 +25,7 @@ if(isset($_GET["cache"])){
     exit();
 }
 $file = fopen("/tmp/test.txt","w");
-fwrite($file,json_encode($yearlist));
+fwrite($file,$response);
 fclose($file);
 /*$year = 2533;
 $preyearlist = array();
