@@ -4,7 +4,7 @@ header('Access-Control-Allow-Origin: *');
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => 'http://lottsanook.herokuapp.com/god?cache',
+  CURLOPT_URL => 'https://lottsanook.herokuapp.com/god?cache',
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => '',
   CURLOPT_MAXREDIRS => 10,
