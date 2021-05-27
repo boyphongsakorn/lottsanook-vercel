@@ -1,9 +1,25 @@
 <?php
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
-$myfile = fopen("/tmp/test.txt","r") or die("Unable to open file!");
+/*$myfile = fopen("/tmp/test.txt","r") or die("Unable to open file!");
 $json_string = fread($myfile,filesize("/tmp/test.txt"));
-fclose($myfile);
+fclose($myfile);*/
+
+$curl = curl_init();
+
+curl_setopt_array($curl, array(
+  CURLOPT_URL => 'https://lottsanook.vercel.app/api/god',
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => '',
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 0,
+  CURLOPT_FOLLOWLOCATION => true,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => 'GET',
+));
+
+$json_string = curl_exec($curl);
+
 $json_array  = json_decode($json_string);
 $count = 0;
 $allwin = array();
