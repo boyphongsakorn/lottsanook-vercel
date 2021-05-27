@@ -1,5 +1,6 @@
 <?php
 <?php
+header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
 $curl = curl_init();
 
@@ -8,11 +9,13 @@ curl_setopt_array($curl, array(
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => '',
   CURLOPT_MAXREDIRS => 10,
-  CURLOPT_TIMEOUT => 0,
+  CURLOPT_TIMEOUT => 30,
   CURLOPT_FOLLOWLOCATION => true,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => 'GET',
 ));
+
+echo 'https://lottsanook.herokuapp.com/finddol.php?search='.$_GET['search'];
 
 $response = curl_exec($curl);
 
