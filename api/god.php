@@ -18,15 +18,15 @@ $response = curl_exec($curl);
 
 curl_close($curl);
 echo $response;
+$file = fopen("/tmp/test.txt","w");
+fwrite($file,$response);
+fclose($file);
 if(isset($_GET["cache"])){
     $myfile = fopen("/tmp/test.txt", "r") or die("Unable to open file!");
     echo fgets($myfile);
     fclose($myfile);
     exit();
 }
-$file = fopen("/tmp/test.txt","w");
-fwrite($file,$response);
-fclose($file);
 /*$year = 2533;
 $preyearlist = array();
 $preyearsuperlist = array();
