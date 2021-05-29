@@ -1,10 +1,18 @@
 <?php
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
+if(isset($_GET["cache"])){
+    if(file_exists("/tmp/test.txt")){
+        $myfile = fopen("/tmp/test.txt", "r") or die("Unable to open file!");
+        echo fgets($myfile);
+        fclose($myfile);
+        exit();
+    }
+}
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => 'https://lottsanook.herokuapp.com/god?cache',
+  CURLOPT_URL => 'https://lottsanook.herokuapp.com/god',
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => '',
   CURLOPT_MAXREDIRS => 10,
@@ -21,12 +29,6 @@ echo $response;
 $file = fopen("/tmp/test.txt","w");
 fwrite($file,$response);
 fclose($file);
-if(isset($_GET["cache"])){
-    $myfile = fopen("/tmp/test.txt", "r") or die("Unable to open file!");
-    echo fgets($myfile);
-    fclose($myfile);
-    exit();
-}
 /*$year = 2533;
 $preyearlist = array();
 $preyearsuperlist = array();
