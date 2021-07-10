@@ -1,10 +1,10 @@
 <?php
 error_reporting(E_ERROR | E_PARSE);
 header('Access-Control-Allow-Origin: *');
-if(strlen($_GET['search']) != 6){
+/*if(strlen($_GET['search']) != 6){
     echo "error";
     exit();
-}
+}*/
 if(isset($_GET['by'])){
     $date=$_GET['by'];
 }
@@ -28,7 +28,7 @@ $lot_array  = json_decode($yourlot);
 foreach($lot_array as $x => $val) {
     foreach($val as $y => $superval) {
         //echo "$x and $y = $val<br>";
-        if($superval == $_GET['search'] || $superval == substr($_GET['search'],0,3) || $superval == substr($_GET['search'],3,3) || $superval == substr($_GET['search'],4,2) && $y != 0){
+        if($superval == $_GET['search'] || $superval == substr($_GET['search'],0,3) || $superval == substr($_GET['search'],-3,3) || $superval == substr($_GET['search'],-2,2) && $y != 0){
             //echo "hee";
             if($x == 0){
                 //echo "111111";
