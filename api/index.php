@@ -70,6 +70,9 @@ $bigel = $dom->getElementsByTagName('b');
 $el = $dom->getElementsByTagName('div');
 foreach($el as $val){
     echo $val ->nodeValue;
+    if(is_numeric($val ->nodeValue)){
+        echo $val ->nodeValue;
+    }
 }
 $lottapi = array (
     array("รางวัลที่1",0),
