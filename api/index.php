@@ -69,7 +69,7 @@ $findday = $dom->getElementsByTagName('strong');
 $bigel = $dom->getElementsByTagName('b');
 $el = $dom->getElementsByTagName('div');
 foreach($el as $val){
-    echo $val ->nodeValue;
+    //echo $val ->nodeValue;
     if(is_numeric($val ->nodeValue)){
         echo "<b>".$val ->nodeValue . "</b><br>";
     }
