@@ -68,6 +68,9 @@ $dom->preserveWhiteSpace = false;
 $findday = $dom->getElementsByTagName('strong');
 $bigel = $dom->getElementsByTagName('b');
 $el = $dom->getElementsByTagName('div');
+foreach($el as $val){
+    echo $val ->nodeValue;
+}
 $lottapi = array (
     array("รางวัลที่1",0),
     array("เลขหน้า3ตัว",0,0),
