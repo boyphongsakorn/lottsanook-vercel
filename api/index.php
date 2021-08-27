@@ -71,7 +71,7 @@ $el = $dom->getElementsByTagName('div');
 foreach($el as $val){
     //echo $val ->nodeValue;
     if(is_numeric($val ->nodeValue)){
-        echo "<b>".$val ->nodeValue . "</b><br>";
+        echo $val ->nodeValue . "\n";
     }
 }
 $lottapi = array (
