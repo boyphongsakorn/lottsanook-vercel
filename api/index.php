@@ -68,13 +68,15 @@ $dom->preserveWhiteSpace = false;
 $findday = $dom->getElementsByTagName('strong');
 $bigel = $dom->getElementsByTagName('b');
 $el = $dom->getElementsByTagName('div');
+$adamnlott = array();
 foreach($el as $val){
     //echo $val ->nodeValue;
     /*if($val -> getAttribute('class') == 'lot-dc lotto-fxl py-20'){
         echo $val ->nodeValue."\n";
     }*/
     if(strpos($val -> getAttribute('class'), 'lot-dc') !== false){
-        echo $val ->nodeValue."\n";
+        //echo $val ->nodeValue."\n";
+        array_push($adamnlott,$val ->nodeValue);
     }
     /*if((!ctype_space($val ->nodeValue) && is_numeric($val ->nodeValue) && strlen($val ->nodeValue) >= 2 && strlen($val ->nodeValue) <= 6) || (!ctype_space(explode(" ",$val ->nodeValue)[0]) && is_numeric(explode(" ",$val ->nodeValue)[0]) && strlen(explode(" ",$val ->nodeValue)[0]) >= 2 && strlen(explode(" ",$val ->nodeValue)[0]) <= 6)){
         echo $val ->nodeValue . "\n this is".explode(" ",$val ->nodeValue)[0]."\n";
@@ -94,13 +96,14 @@ $lottapi = array (
 if (isset($_GET['from'])) {
     $lottapi[0][0] = $day.' '.$monthtext.' '.$year;
 }
-if($bigel[2] ->nodeValue == null){
+if($el[2] ->nodeValue == null){
     echo json_encode($lottapi);
     exit();
 }
-$wave = 5;
-$minwave = 0;
-$maxwave = 5;
+/*if($bigel[2] ->nodeValue == null){
+    echo json_encode($lottapi);
+    exit();
+}
 $lottapi[0][1] = $bigel[2] ->nodeValue;
 $threefirst = explode(" ",$bigel[3] ->nodeValue);
 $threeend = explode(" ",$bigel[4] ->nodeValue);
@@ -124,6 +127,65 @@ foreach($el as $val){
             $minwave++;
             $lottapi[$wave][$minwave] = $val ->nodeValue;
         }
+    }
+    if ($minwave == $maxwave && $wave == 5) {
+        $minwave = 0;
+        $maxwave = 10;
+        $wave = 6;
+    }
+    if ($minwave == $maxwave && $wave == 6) {
+        $minwave = 0;
+        $maxwave = 50;
+        $wave = 7;
+    }
+    if ($minwave == $maxwave && $wave == 7) {
+        $minwave = 0;
+        $maxwave = 100;
+        $wave = 8;
+    }
+}*/
+$threefirst = array();
+$threeend = array();
+$lottapi[0][1] = $adamnlott[0];
+array_shift($adamnlott);
+if (count(explode(" ",$adamnlott[0])) > 2) {
+    $threeend = explode(" ",$adamnlott[0]);
+    $lottapi[2][1] = preg_replace('/\xc2\xa0/', '', $threeend[0]);
+    $lottapi[2][2] = preg_replace('/\xc2\xa0/', '', $threeend[1]);
+    $lottapi[2][3] = preg_replace('/\xc2\xa0/', '', $threeend[2]);
+    $lottapi[2][4] = preg_replace('/\xc2\xa0/', '', $threeend[3]);
+} else {
+    $threefirst = explode(" ",$adamnlott[0]);
+    $lottapi[1][1] = preg_replace('/\xc2\xa0/', '', $threefirst[0]);
+    $lottapi[1][2] = preg_replace('/\xc2\xa0/', '', $threefirst[1]);
+}
+array_shift($adamnlott);
+if (strlen($adamnlott[0]) == 2) {
+    $lottapi[3][1] = $adamnlott[0];
+    array_shift($adamnlott);
+} else {
+    $threeend = explode(" ",$adamnlott[0]);
+    $lottapi[2][1] = preg_replace('/\xc2\xa0/', '', $threeend[0]);
+    $lottapi[2][2] = preg_replace('/\xc2\xa0/', '', $threeend[1]);
+    array_shift($adamnlott);
+    $lottapi[3][1] = $adamnlott[0];
+    array_shift($adamnlott);
+}
+$lottapi[4][1] = sprintf('%06d', ($lottapi[0][1]-1));
+$lottapi[4][2] = sprintf('%06d', ($lottapi[0][1]+1));
+$wave = 5;
+$minwave = 0;
+$maxwave = 5;
+foreach($adamnlott as $val){
+    /*if($val -> getAttribute('class') == 'ltr_dc ltr-fx ltr_c20'){
+        if ($minwave < $maxwave) {
+            $minwave++;
+            $lottapi[$wave][$minwave] = $val ->nodeValue;
+        }
+    }*/
+    if ($minwave < $maxwave) {
+        $minwave++;
+        $lottapi[$wave][$minwave] = $val;
     }
     if ($minwave == $maxwave && $wave == 5) {
         $minwave = 0;
