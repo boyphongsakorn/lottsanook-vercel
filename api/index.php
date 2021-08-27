@@ -97,7 +97,7 @@ $lottapi = array (
 if (isset($_GET['from'])) {
     $lottapi[0][0] = $day.' '.$monthtext.' '.$year;
 }
-if($el[2] ->nodeValue == null){
+if($el[2] ->nodeValue == null || count($adamnlott) < 180){
     echo json_encode($lottapi);
     exit();
 }
