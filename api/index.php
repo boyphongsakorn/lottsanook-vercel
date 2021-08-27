@@ -70,7 +70,10 @@ $bigel = $dom->getElementsByTagName('b');
 $el = $dom->getElementsByTagName('div');
 foreach($el as $val){
     //echo $val ->nodeValue;
-    if($val -> getAttribute('class') == 'lot-dc lotto-fxl py-20'){
+    /*if($val -> getAttribute('class') == 'lot-dc lotto-fxl py-20'){
+        echo $val ->nodeValue."\n";
+    }*/
+    if(strpos($val -> getAttribute('class'), 'lot-dc') !== false){
         echo $val ->nodeValue."\n";
     }
     /*if((!ctype_space($val ->nodeValue) && is_numeric($val ->nodeValue) && strlen($val ->nodeValue) >= 2 && strlen($val ->nodeValue) <= 6) || (!ctype_space(explode(" ",$val ->nodeValue)[0]) && is_numeric(explode(" ",$val ->nodeValue)[0]) && strlen(explode(" ",$val ->nodeValue)[0]) >= 2 && strlen(explode(" ",$val ->nodeValue)[0]) <= 6)){
