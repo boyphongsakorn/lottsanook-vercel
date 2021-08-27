@@ -70,8 +70,14 @@ $bigel = $dom->getElementsByTagName('b');
 $el = $dom->getElementsByTagName('div');
 foreach($el as $val){
     //echo $val ->nodeValue;
-    if((!empty($val ->nodeValue) && is_numeric($val ->nodeValue) && strlen($val ->nodeValue) >= 2 && strlen($val ->nodeValue) <= 6) || (!empty(explode(" ",$val ->nodeValue)[0]) && is_numeric(explode(" ",$val ->nodeValue)[0]) && strlen(explode(" ",$val ->nodeValue)[0]) >= 2 && strlen(explode(" ",$val ->nodeValue)[0]) <= 6)){
+    if((is_numeric($val ->nodeValue) && strlen($val ->nodeValue) >= 2 && strlen($val ->nodeValue) <= 6) || (is_numeric(explode(" ",$val ->nodeValue)[0]) && strlen(explode(" ",$val ->nodeValue)[0]) >= 2 && strlen(explode(" ",$val ->nodeValue)[0]) <= 6)){
         echo $val ->nodeValue . "\n this is".explode(" ",$val ->nodeValue)[0]."\n";
+    }
+    if((is_numeric($val ->nodeValue) && strlen($val ->nodeValue) >= 2 && strlen($val ->nodeValue) <= 6)){
+        echo "1 \n";
+    }
+    if((is_numeric(explode(" ",$val ->nodeValue)[0]) && strlen(explode(" ",$val ->nodeValue)[0]) >= 2 && strlen(explode(" ",$val ->nodeValue)[0]) <= 6)){
+        echo "2 \n";
     }
 }
 $lottapi = array (
