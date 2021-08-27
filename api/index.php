@@ -70,7 +70,7 @@ $bigel = $dom->getElementsByTagName('b');
 $el = $dom->getElementsByTagName('div');
 foreach($el as $val){
     //echo $val ->nodeValue;
-    if((is_numeric($val ->nodeValue) && strlen($val ->nodeValue) == 6) || (is_numeric(explode(" ",$val ->nodeValue)[0]))){
+    if((is_numeric($val ->nodeValue) && strlen($val ->nodeValue) >= 2) || (is_numeric(explode(" ",$val ->nodeValue)[0]) && strlen(explode(" ",$val ->nodeValue)[0]) >= 2)){
         echo $val ->nodeValue . "\n";
     }
 }
