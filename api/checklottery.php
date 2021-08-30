@@ -8,10 +8,10 @@ header('Access-Control-Allow-Origin: *');
 if(isset($_GET['by'])){
     $date=$_GET['by'];
 }
-/*if(file_exists("/tmp/".$date.".txt")){
+if(file_exists("/tmp/".$date.".txt")){
     $myfile = fopen("/tmp/".$date.".txt","r") or die("Unable to open file!");
     $yourlot = fread($myfile,filesize("/tmp/".$date.".txt"));
-}else{*/
+}else{
     $url = "https://lottsanook.vercel.app/api/?date=".$date;
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
@@ -19,7 +19,7 @@ if(isset($_GET['by'])){
     $response = curl_exec($ch);
     curl_close($ch);
     $yourlot = $response;
-//}
+}
 $lot_array  = json_decode($yourlot);
 //echo $yourlot;
 /*if($lot_array[0][1] == $_GET['search']){
