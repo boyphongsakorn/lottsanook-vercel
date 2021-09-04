@@ -12,7 +12,8 @@ if(isset($_GET["cache"])){
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => 'https://lottsanook.herokuapp.com/god',
+  //CURLOPT_URL => 'https://lottsanook.herokuapp.com/god',
+  CURLOPT_URL => 'https://raw.githubusercontent.com/boyphongsakorn/testrepo/main/god',
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => '',
   CURLOPT_MAXREDIRS => 10,
