@@ -1,5 +1,5 @@
 <?php
-error_reporting(E_ERROR | E_PARSE);
+//error_reporting(E_ERROR | E_PARSE);
 header('Access-Control-Allow-Origin: *');
 /*if(strlen($_GET['search']) != 6){
     echo "error";
@@ -12,7 +12,7 @@ if(isset($_GET['by'])){
     $myfile = fopen("/tmp/".$date.".txt","r") or die("Unable to open file!");
     $yourlot = fread($myfile,filesize("/tmp/".$date.".txt"));
 }else{*/
-    $url = "https://lottsanook.vercel.app/api/index2?date=".$date."&fresh";
+    $url = "https://lottsanook.vercel.app/api/index2?date=01102564&fresh";
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
