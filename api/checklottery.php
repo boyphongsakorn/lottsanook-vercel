@@ -37,14 +37,13 @@ curl_setopt_array($curl, array(
 $response = curl_exec($curl);
 
 curl_close($curl);
-echo $response;
 
-$lot_array  = json_decode($response);
-echo $yourlot;
+$lot_array = json_decode($response);
+echo $response;
 /*if($lot_array[0][1] == $_GET['search']){
     echo "hee";
 }*/
-foreach($lot_array as $x => $val) {
+/*foreach($lot_array as $x => $val) {
     foreach($val as $y => $superval) {
         //echo "$x and $y = $val<br>";
         echo substr($_GET['search'],0,3);
@@ -97,5 +96,5 @@ foreach($lot_array as $x => $val) {
     }*/
 }
 //echo $result;
-echo substr($result, 0, -1);
+//echo substr($result, 0, -1);
 ?>
