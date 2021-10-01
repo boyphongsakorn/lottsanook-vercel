@@ -12,7 +12,7 @@ if(file_exists("/tmp/".$date.".txt")){
     $myfile = fopen("/tmp/".$date.".txt","r") or die("Unable to open file!");
     $yourlot = fread($myfile,filesize("/tmp/".$date.".txt"));
 }else{
-    $url = "https://lottsanook.vercel.app/api/?date=".$date;
+    $url = "https://lottsanook.vercel.app/api/index2?date=".$date;
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
