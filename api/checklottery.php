@@ -6,7 +6,7 @@ header('Access-Control-Allow-Origin: *');
     exit();
 }*/
 if(isset($_GET['by'])){
-    $date=$_GET['by'];
+    $date=sprintf("%08d", $_GET['by']);
 }
 if(file_exists("/tmp/".$date.".txt")){
     $myfile = fopen("/tmp/".$date.".txt","r") or die("Unable to open file!");
