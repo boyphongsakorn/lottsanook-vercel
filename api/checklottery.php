@@ -12,15 +12,34 @@ if(isset($_GET['by'])){
     $myfile = fopen("/tmp/".$date.".txt","r") or die("Unable to open file!");
     $yourlot = fread($myfile,filesize("/tmp/".$date.".txt"));
 }else{*/
-    $url = "https://lottsanook.vercel.app/api/index2?date=01102564&fresh";
+    /*$url = "https://lottsanook.vercel.app/api/index2?date=01102564&fresh";
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     $response = curl_exec($ch);
     curl_close($ch);
-    $yourlot = $response;
+    $yourlot = $response;*/
 //}
-$lot_array  = json_decode($yourlot);
+
+$curl = curl_init();
+
+curl_setopt_array($curl, array(
+  CURLOPT_URL => 'https://lottsanook.vercel.app/api/index2?date=01102564',
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => '',
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 0,
+  CURLOPT_FOLLOWLOCATION => true,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => 'GET',
+));
+
+$response = curl_exec($curl);
+
+curl_close($curl);
+echo $response;
+
+$lot_array  = json_decode($response);
 echo $yourlot;
 /*if($lot_array[0][1] == $_GET['search']){
     echo "hee";
