@@ -21,7 +21,7 @@ if(file_exists("/tmp/".$date.".txt")){
     $yourlot = $response;
 }
 $lot_array  = json_decode($yourlot);
-//echo $yourlot;
+echo $yourlot;
 /*if($lot_array[0][1] == $_GET['search']){
     echo "hee";
 }*/
