@@ -16,7 +16,7 @@ curl_setopt_array($curl, array(
   CURLOPT_POSTFIELDS =>'{"inputs":{"number": "578171"},"ref":"refs/heads/main"}',
   CURLOPT_HTTPHEADER => array(
     'Accept: application/vnd.github.v3+json',
-    'Authorization: token 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',
+    'Authorization: token '.$_ENV["gtoken"],
     'User-Agent: PostmanRuntime/7.28.4',
     'Content-Type: application/json'
   ),
