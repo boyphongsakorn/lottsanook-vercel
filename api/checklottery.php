@@ -39,11 +39,11 @@ $response = curl_exec($curl);
 curl_close($curl);
 
 $lot_array = json_decode($response);
-echo $response;
+//echo $response;
 /*if($lot_array[0][1] == $_GET['search']){
     echo "hee";
 }*/
-/*foreach($lot_array as $x => $val) {
+foreach($lot_array as $x => $val) {
     foreach($val as $y => $superval) {
         //echo "$x and $y = $val<br>";
         echo substr($_GET['search'],0,3);
@@ -96,5 +96,5 @@ echo $response;
     }*/
 }
 //echo $result;
-//echo substr($result, 0, -1);
+echo substr($result, 0, -1);
 ?>
