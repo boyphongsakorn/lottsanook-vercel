@@ -1,8 +1,8 @@
 <?php
-//error_reporting(E_ERROR | E_PARSE);
+error_reporting(E_ERROR | E_PARSE);
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
-echo 'test';
+//echo 'test';
 $filename = $_GET['date'].".txt";
 $day = substr($_GET['date'], 0,2);
 $month = substr($_GET['date'], 2,2);
