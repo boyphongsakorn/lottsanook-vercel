@@ -24,7 +24,7 @@ if(isset($_GET['by'])){
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => 'https://lottsanook.vercel.app/api/index2?date=01102564',
+  CURLOPT_URL => 'https://lottsanook.vercel.app/api/index2?date='.$date,
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => '',
   CURLOPT_MAXREDIRS => 10,
@@ -46,9 +46,6 @@ $lot_array = json_decode($response);
 foreach($lot_array as $x => $val) {
     foreach($val as $y => $superval) {
         //echo "$x and $y = $val<br>";
-        echo substr($_GET['search'],0,3);
-        echo substr($_GET['search'],-3,3);
-        echo substr($_GET['search'],-2,2);
         if($superval == $_GET['search'] || $superval == substr($_GET['search'],0,3) || $superval == substr($_GET['search'],-3,3) || $superval == substr($_GET['search'],-2,2) && $y != 0){
             //echo "hee";
             if($x == 0){
@@ -96,5 +93,9 @@ foreach($lot_array as $x => $val) {
     }*/
 }
 //echo $result;
-echo substr($result, 0, -1);
+if($result == ''){
+    echo $result;
+}else{
+    echo substr($result, 0, -1);
+}
 ?>
