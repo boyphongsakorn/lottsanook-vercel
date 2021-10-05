@@ -1,5 +1,5 @@
 <?php
-//error_reporting(E_ERROR | E_PARSE);
+error_reporting(E_ERROR | E_PARSE);
 header('Access-Control-Allow-Origin: *');
 /*if(strlen($_GET['search']) != 6){
     echo "error";
@@ -93,9 +93,5 @@ foreach($lot_array as $x => $val) {
     }*/
 }
 //echo $result;
-if($result == ''){
-    echo $result;
-}else{
-    echo substr($result, 0, -1);
-}
+echo substr($result, 0, -1);
 ?>
