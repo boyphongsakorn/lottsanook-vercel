@@ -12,7 +12,7 @@ if(isset($_GET["cache"])){
 
 $curl = curl_init();
 
-if(isset($_GET["format"]){
+if(!empty($_GET["format"]){
     if($_GET["format"] == "thtext"){
         curl_setopt_array($curl, array(
           //CURLOPT_URL => 'https://lottsanook.herokuapp.com/god',
