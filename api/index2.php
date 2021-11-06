@@ -45,14 +45,14 @@ if(file_exists("/tmp/".$filename)){
 if ($year == date('Y')+543) {
     if (isset($_GET['from'])) {
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, 'https://lottsanook.vercel.app/api/index2.php?date='.$_GET['date'].'&from');
+        curl_setopt($ch, CURLOPT_URL, 'https://lottsanook.vercel.app/api/index3.php?date='.$_GET['date'].'&from');
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         $response = curl_exec($ch);
         curl_close($ch);
         echo $response;
     }else{
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, 'https://lottsanook.vercel.app/api/index2.php?date='.$_GET['date']);
+        curl_setopt($ch, CURLOPT_URL, 'https://lottsanook.vercel.app/api/index3.php?date='.$_GET['date']);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         $response = curl_exec($ch);
         curl_close($ch);
