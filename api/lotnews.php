@@ -50,7 +50,7 @@ $array = json_decode($json,TRUE);
 //print_r($array);
 //loop news 5 times
 //print_r($array);
-for($i=0;$i<5;$i++){
+for($i=0;$i<$countnumber[0];$i++){
     $title = $array['channel']['item'][$i]['title'];
     $link = $array['channel']['item'][$i]['link'];
     $description = mb_substr(strip_tags($array['channel']['item'][$i]['description']),0,100,'UTF-8').'...';
@@ -63,7 +63,7 @@ for($i=0;$i<5;$i++){
 
 $xml=simplexml_load_file("https://www.khaosod.co.th/tag/เลขเด็ด/feed", 'SimpleXMLElement', LIBXML_NOCDATA) or die("Error: Cannot create object");
 //for 5 times
-for($i=0;$i<5;$i++){
+for($i=0;$i<$countnumber[1];$i++){
     $title = strval($xml->channel->item[$i]->title);
     $link = strval($xml->channel->item[$i]->link);
     //cut description to 100 char and add ...
@@ -101,7 +101,7 @@ $array = json_decode($json,TRUE);
 //print_r($array);
 //loop news 5 times
 //print_r($array);
-for($i=0;$i<5;$i++){
+for($i=0;$i<$countnumber[2];$i++){
     $title = $array['channel']['item'][$i]['title'];
     $link = $array['channel']['item'][$i]['link'];
     $description = mb_substr(strip_tags($array['channel']['item'][$i]['description']),0,100,'UTF-8').'...';
