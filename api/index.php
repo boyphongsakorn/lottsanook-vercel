@@ -8,7 +8,7 @@ $filename = $_GET['date'].".txt";
 $day = substr($_GET['date'], 0,2);
 $month = substr($_GET['date'], 2,2);
 $year = substr($_GET['date'], 4,4);
-if ($year == date('Y')+543) {
+/*if ($year == date('Y')+543) {
     if (isset($_GET['from'])) {
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, 'https://lottsanook.vercel.app/api/index3.php?date='.$_GET['date'].'&from');
@@ -25,7 +25,7 @@ if ($year == date('Y')+543) {
         echo $response;
     }
     exit();
-}
+}*/
 switch ($month)
     {
       case '01' : $monthtext="มกราคม"; break;
@@ -114,7 +114,25 @@ curl_close($curl);
 $response = json_decode($response, true);
 
 if(empty($response["response"])){
-    echo json_encode($lottapi);
+    if ($year == date('Y')+543) {
+        if (isset($_GET['from'])) {
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, 'https://lottsanook.herokuapp.com/index2.php?date='.$_GET['date'].'&from');
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            $response = curl_exec($ch);
+            curl_close($ch);
+            echo $response;
+        }else{
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, 'https://lottsanook.herokuapp.com/index2.php?date='.$_GET['date']);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            $response = curl_exec($ch);
+            curl_close($ch);
+            echo $response;
+        }
+        exit();
+    }
+    //echo json_encode($lottapi);
     exit();
 }
 
