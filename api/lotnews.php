@@ -5,21 +5,23 @@ header('Access-Control-Allow-Origin: *');
 $countnumber = array(); 
 //mod by 3
 if(isset($_GET['count'])){
-  if($_GET['count']%3 == 0){
-    $countnumber[0] = $_GET['count']/3;
-    $countnumber[1] = $_GET['count']/3;
-    $countnumber[2] = $_GET['count']/3;
+  if(intval($_GET['count'])%3 == 0){
+    $countnumber[0] = intval($_GET['count'])/3;
+    $countnumber[1] = intval($_GET['count'])/3;
+    $countnumber[2] = intval($_GET['count'])/3;
   }else{
     if($_GET['count']%3 == 1){
       //round down
-      $countnumber[0] = floor($_GET['count']/3);
+      $countnumber[0] = floor(intval($_GET['count'])/3);
       //round up
-      $countnumber[1] = ceil($_GET['count']/3);
-      $countnumber[2] = floor($_GET['count']/3);
+      $countnumber[1] = ceil(intval($_GET['count'])/3);
+      $countnumber[2] = floor(intval($_GET['count'])/3);
     }else{
-      $countnumber[0] = $_GET['count']/3;
-      $countnumber[1] = $_GET['count']/3;
-      $countnumber[2] = $_GET['count']/3;
+      //round down
+      $countnumber[0] = floor(intval($_GET['count'])/3);
+      //round up
+      $countnumber[1] = ceil(intval($_GET['count'])/3);
+      $countnumber[2] = ceil(intval($_GET['count'])/3);
     }
   }
 }
