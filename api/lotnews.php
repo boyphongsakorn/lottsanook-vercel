@@ -10,7 +10,7 @@ if(isset($_GET['count'])){
     $countnumber[1] = intval($_GET['count'])/3;
     $countnumber[2] = intval($_GET['count'])/3;
   }else{
-    if($_GET['count']%3 == 1){
+    if(intval($_GET['count'])%3 == 1){
       //round down
       $countnumber[0] = floor(intval($_GET['count'])/3);
       //round up
