@@ -59,7 +59,8 @@ for($i=0;$i<$countnumber[0];$i++){
     $pubDate = $array['channel']['item'][$i]['pubDate'];
     //$image = $array['channel']['item'][$i]['enclosure']['@attributes']['url'];
     //cut description to 100 char and add ...
-    $a=array($title,$link,$description,$pubDate);
+    //$a=array($title,$link,$description,$pubDate);
+    $a=array("title"=>$title, "link"=>$link, "description"=>$description, "pubDate"=>$pubDate);
     array_push($cars,$a);
 }
 
@@ -74,7 +75,8 @@ for($i=0;$i<$countnumber[1];$i++){
     $content = $xml->channel->item[$i]->children('media', true)->content;
     $image = strval($content->attributes()['url']);
     //echo $image;
-    $a=array($title,$link,$description,$image,$pubDate);
+    //$a=array($title,$link,$description,$image,$pubDate);
+    $a=array("title"=>$title, "link"=>$link, "description"=>$description, "image"=>$image, "pubDate"=>$pubDate);
     array_push($cars,$a);
 }
 
@@ -109,7 +111,8 @@ for($i=0;$i<$countnumber[2];$i++){
     $description = mb_substr(strip_tags($array['channel']['item'][$i]['description']),0,100,'UTF-8').'...';
     $pubDate = $array['channel']['item'][$i]['pubDate'];
     //$image = $array['channel']['item'][$i]['enclosure']['@attributes']['url'];
-    $a=array($title,$link,$description,$pubDate);
+    //$a=array($title,$link,$description,$pubDate);
+    $a=array("title"=>$title, "link"=>$link, "description"=>$description, "pubDate"=>$pubDate);
     array_push($cars,$a);
 }
 
